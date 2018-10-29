@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 import './App.css';
-
-import {createStore} from 'redux'
+import {Provider} from 'react-redux';
+import store from './store';
+import Count from './components/index'
+import Controll from './components/Controller'
 
 class App extends Component {
   render() {
@@ -30,22 +32,13 @@ class App extends Component {
     store.dispatch({type: "Something"})
     store.dispatch({type: "B"})
     */
-
-    const reducer = (state={},action)=>{
-      return state;
-    }
-    const store = createStore(reducer);
-
-    store.subscribe(()=>{
-      console.log(store.getState());
-    })
-
-    store.dispatch({type: 'Something'})
-
     return (
-      <div className="App">
-        
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Count/>
+          <Controll/>
+        </div>
+      </Provider>
     );
   }
 }
