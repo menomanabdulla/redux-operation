@@ -1,8 +1,9 @@
-const initialState = {
-    count: 0
-}
 
-function rootReducer(state = initialState,action ){
+//import React, { Component } from 'react';
+const intialValue = {
+    count : 0
+}
+function rootReducer(state=intialValue,action){
     switch(action.type){
         case 'ADD':{
             return{
@@ -18,4 +19,4 @@ function rootReducer(state = initialState,action ){
     }
 }
 
-export default rootReducer
+export default rootReducer;

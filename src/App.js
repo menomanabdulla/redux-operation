@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-
+import { Provider } from 'react-redux';
+import store from './store/index';
 import './App.css';
-import {Provider} from 'react-redux';
-import store from './store';
-import Count from './components/index'
-import Controll from './components/Controller'
+import Number from './components/count';
+import CountController from './components/count/controller';
 
 class App extends Component {
   render() {
@@ -32,15 +31,16 @@ class App extends Component {
     store.dispatch({type: "Something"})
     store.dispatch({type: "B"})
     */
+    
     return (
-      <Provider store={store}>
-        <div className="App">
-          <Count/>
-          <Controll/>
-        </div>
-      </Provider>
+        <Provider store={store}>
+          <div className="App">
+              <h1>Hello react</h1>
+              <Number/>
+              <CountController/>
+          </div>
+        </Provider>
     );
   }
 }
-
 export default App;
